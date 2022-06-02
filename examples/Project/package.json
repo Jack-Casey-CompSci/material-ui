@@ -8,10 +8,13 @@
     "@mui/material": "^5.8.2",
     "@types/react": "^18.0.10",
     "@types/react-dom": "latest",
+    "ajv": "^8.11.0",
+    "open": "^8.4.0",
     "react": "latest",
     "react-dom": "latest",
     "react-script": "^2.0.5",
     "react-scripts": "latest",
+    "rollup": "^2.75.5",
     "typescript": "latest"
   },
   "scripts": {
