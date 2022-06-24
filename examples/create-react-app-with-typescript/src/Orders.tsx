@@ -7,51 +7,58 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 
+
 // Generate Order Data
 function createData(
   id: number,
-  date: string,
-  name: string,
-  shipTo: string,
-  paymentMethod: string,
-  amount: number,
+  address: string,
+  size: string,
+  type: string,
+  market: string,
+  detail: any,
 ) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+  return { id, address, size, type, market, detail};
 }
-
 const rows = [
   createData(
     0,
-    '16 Mar, 2019',
-    'Elvis Presley',
-    'Tupelo, MS',
-    'VISA ⠀•••• 3719',
-    312.44,
+    '22 Water ave',
+    '25,000',
+    'Industrial',
+    'New York, NY',
+    'More Details'
   ),
   createData(
     1,
-    '16 Mar, 2019',
-    'Paul McCartney',
-    'London, UK',
-    'VISA ⠀•••• 2574',
-    866.99,
+    '4605 Fire Rd',
+    '5,000',
+    'Office',
+    'Dallas, TX',
+    'More Details'
   ),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
+  createData(
+    2, 
+    '74 Rock blvd', 
+    '75,000', 
+    'Industrial', 
+    'Boston, MA', 
+    'More Details',
+  ),
   createData(
     3,
-    '16 Mar, 2019',
-    'Michael Jackson',
-    'Gary, IN',
-    'AMEX ⠀•••• 2000',
-    654.39,
+    '905 Wind Ln',
+    '10,000',
+    'Office',
+    'Philadelphia, PA',
+    'More Details'
   ),
   createData(
     4,
-    '15 Mar, 2019',
-    'Bruce Springsteen',
-    'Long Branch, NJ',
-    'VISA ⠀•••• 5919',
-    212.79,
+    '65 Gold St',
+    '60,000',
+    'Industrial',
+    'Los Angeles, CA',
+    'More Details'
   ),
 ];
 
@@ -62,31 +69,35 @@ function preventDefault(event: React.MouseEvent) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent Properties</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Address</TableCell>
+            <TableCell>Size(sq. ft)</TableCell>
+            <TableCell>Asset Type</TableCell>
+            <TableCell>Market</TableCell>
+            <TableCell>Property Details</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
+              <TableCell>{row.address}</TableCell>
+              <TableCell>{row.size}</TableCell>
+              <TableCell>{row.type}</TableCell>
+              <TableCell>{row.market}</TableCell>
+                <TableCell>
+                <Link href="/Prop1">
+                {row.detail}
+                </Link>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
       <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
+        See more Properties
       </Link>
     </React.Fragment>
   );
